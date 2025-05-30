@@ -14,11 +14,23 @@ public class MiniGameSystem : MonoBehaviour
 
     private List<ICard> _cards = new List<ICard>();
 
-    private void Start() => Initialize();
+     void Awake()
+    {
+        _cardsParent.gameObject.SetActive(false);
+    }
+    public void StartGame()
+    {
+        Debug.Log("MiniGameSystem.StartGame() вызван!");
+        _cardsParent.gameObject.SetActive(true);
+        Initialize();
+    }
+
     private void HandleCardSelected(ICard card) => _gameLogic.SelectCard(card);
 
     private void Initialize()
     {
+        
+
         if (_gameConfig.FrontSides.Count < _gameConfig.PairsCount)
         {
             Debug.LogError("Не хватает спрайтов для всех пар, 1 пара - 1 уникальный спрайт в списке в конфиге");

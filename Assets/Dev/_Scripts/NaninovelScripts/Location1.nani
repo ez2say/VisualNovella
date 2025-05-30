@@ -1,0 +1,8 @@
+
+@char Npc1 appear
+Npc1: Привет, путник!
+Npc1: Мне нужна твоя помощь.
+Npc1: Найди человека по имени НПЦ-2. Он живёт в соседнем городе.
+
+@execute QuestSystem UpdateQuest "Найдите НПЦ-2"
+@goto Location2
