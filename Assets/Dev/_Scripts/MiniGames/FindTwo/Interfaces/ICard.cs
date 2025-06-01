@@ -11,4 +11,5 @@ public interface ICard
     void SetData(int pairID, Sprite frontSprite);
 
     event Action<ICard> OnCardSelected;
+    void Destroy();
 }

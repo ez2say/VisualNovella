@@ -1,0 +1,14 @@
+#start
+@back
+@showPrinter
+
+name: Я на старой заброшенной ферме...
+name: Что-то блестит под доской... Это ключ!
+@choice "Взять ключ" goto:.take_key
+
+
+#take_key
+@set Key=true
+log key:{Key}
+name: Скорее всего это то что искал Npc2.
+@print "Ключ получен! Переход на Location2"

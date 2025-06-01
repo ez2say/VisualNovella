@@ -1,11 +1,67 @@
+#start
+@if !Location2Complete
+@if !Key
+    @goto .initial_dialog
+@else
+    @goto .findKey
+@endif
+@else 
+    @goto .final
+@endif
 
-@char Npc2 appear
-Npc2: Ты пришёл? Я тебя ждал.
-Npc2: Чтобы получить задание, тебе нужно пройти испытание.
+# initial_dialog
+Npc2: Привет {name}!Да,тут все знают как тебя зовут - не удивляйся.
+Npc2:*смеется*
+@choice "Но меня прислали сообщить тебе,что .." goto:.startminigame
+@choice "Вы издеваетесь!?" goto:.angry
+@stop
 
-@custom MiniGameSystem.StartGame
+#angry
+Npc2: Да ладно тебе, лучше помоги мне и..
+@choice "Какой-то кто-то с первой локации сказал что знает где ключ,все я пошел" goto:.badboy
+@choice "Чем помочь" goto:.startminigame
+@stop
 
-# После завершения мини-игры показываем следующий диалог
-@char Npc2 happy
-Npc2: Хорошо! Ты прошёл испытание.
-Npc2: Теперь я могу дать тебе настоящее задание.
+#badboy
+Npc2:А за монетку?
+@choice "Давай" goto:.startminigame
+@choice "Ну ладно,давай" goto:.startminigame
+@stop
+
+
+#startminigame
+Npc2:Помоги мне разобраться с загадкой, а то я сейчас ну совсем не могу думать, у меня на завтрак была лоботомия,а потом я обязательно тебя выслушаюю
+
+@choice "Конечно!" goto:.agree
+@choice "Не сейчас..." goto:.refuse
+@stop
+
+#agree
+@startMiniGame
+Npc2: {name}, ты справился! Спасибо за помощь!
+@goto .end
+
+
+#refuse
+Lorem: Очень жаль... Может быть, в другой раз?
+@goto .startminigame
+
+#end
+Npc: На локации 3 нужно кое-что найти, только это нужно отдать МНЕ
+@stop
+
+#findKey
+@back
+@showPrinter
+@char None
+name: Я вернулся к пустому столбу...,где этот ..который больной(?)
+log *пууууууууууууууууууууууууууууууууууууууууууусто*
+name: наверное нужно вернуться на первую локацию
+@set Location2Complete=true
+@stop
+
+#final
+name: никого и ничего вокруг...
+name: спокойно
+log *ты стоишь и ничего не происходит*
+@stop

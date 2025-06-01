@@ -1,32 +1,24 @@
 using System;
 using UnityEngine;
 
-public class WinHandler: IWin
+public class WinHandler : IWin
 {
-    private readonly int _totalPairs;
-    private readonly Transform _cardsParent;
-
-    public event Action OnWin;
-
+    private readonly int _pairsToMatch;
     private int _matchedPairs;
+    private readonly Action _onWinCallback;
 
-    public WinHandler(int totalPairs, Transform cardsParent)
+    public WinHandler(int pairsToMatch, Action onWinCallback)
     {
-        _totalPairs = totalPairs;
-        _cardsParent = cardsParent;
+        _pairsToMatch = pairsToMatch;
+        _onWinCallback = onWinCallback;
     }
 
     public void OnPairMatched()
     {
         _matchedPairs++;
-
-        if (_matchedPairs == _totalPairs)
+        if (_matchedPairs >= _pairsToMatch)
         {
-            OnWin?.Invoke();
-            OnAllPairsMatched();
+            _onWinCallback?.Invoke();
         }
     }
-
-    private void OnAllPairsMatched()
-    => _cardsParent.gameObject.SetActive(false);
 }

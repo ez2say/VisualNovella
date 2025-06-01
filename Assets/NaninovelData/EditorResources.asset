@@ -149,9 +149,11 @@ MonoBehaviour:
     - name: Location1
       pathPrefix: Scripts
       guid: 25ece0e208997d14399da2c74b25589a
-    - name: GlobalMap
-      pathPrefix: Scripts
-      guid: a188783884a119b42bb568aeeb3018a6
     - name: Location2
       pathPrefix: Scripts
       guid: 7b28a24137259024f9a38ec751c9cfdc
+    - name: Location3
+      pathPrefix: Scripts
+      guid: f536d3db06ffeec4889173c0dd2f5c0d
+  - Id: Unlockables
+    Resources: []

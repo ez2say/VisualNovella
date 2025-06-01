@@ -62,4 +62,9 @@ public class Card : MonoBehaviour, ICard, IPointerClickHandler
         ShowFront();
         OnCardSelected?.Invoke(this);
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

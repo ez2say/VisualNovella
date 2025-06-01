@@ -1,8 +1,71 @@
+# start
+@if !Key
+    @goto .initial_dialog
+@else
+    @goto .storyfinal
+@endif
 
-@char Npc1 appear
-Npc1: Привет, путник!
-Npc1: Мне нужна твоя помощь.
-Npc1: Найди человека по имени НПЦ-2. Он живёт в соседнем городе.
+#initial_dialog
+@back
+@hidePrinter
+@input name summary:"Как вас зовут?" button:"Подтвердить"
+@set name="%InputDialog.Result%"
+@stop
 
-@execute QuestSystem UpdateQuest "Найдите НПЦ-2"
-@goto Location2
+@showPrinter
+@char Npc1
+
+log *к тебе стоит спиной человек и бьет чем то по сундуку*
+log *он словно понял что ты стоишь сзади,он обернулся*
+Npc1: Привет, {name}!
+Npc1:
+Npc1: Я понимаю,что ты тут впрервые и у тебя много вопросов,например откуда я знаю твое имя,но..Нет времени объяснять, беги на вторую локацию и скажи npc2 что я кажется знаю где ключ!
+@updateQuestLog description:"Начат квест на Location2"
+@set QuestStarted=true
+@choice "Хорошо" goto:.location2
+@stop
+
+#location2
+name: нужно отправиться на локацию 2
+@stop
+
+#storyfinal
+@char Npc1
+@char Npc2
+
+Npc2: Ты нашел,то что я просил тебя найти?!?!
+Npc1: Да ты нашел?
+
+@choice "Да нашел,вот ключ Npc1" goto:.Npc1Win
+@choice "Да нашел,вот ключ Npc2" goto:.Npc2Win
+@choice "Да нашел, но не отдам" goto:.win
+
+#Npc1Win
+@char Npc1
+@char Npc2
+Npc1: Оура,наконец я открою сундук!
+Npc2: Вот блин,ну ничего ,в следующий раз обязательно
+
+@set Npc1Win=true
+name: получается все
+
+#Npc2Win
+@char Npc2
+@char Npc1
+Npc2: Молодец,спасибо
+Npc1: Вот блин,ну ничего ,в следующий раз обязательно
+
+@set Npc2Win=true 
+name: получается все(2)
+
+#win
+@char Npc2
+@char Npc1
+Npc2: Вот блин,ну ничего ,в следующий раз обязательно
+Npc1: Вот блин,ну ничего ,в следующий раз обязательно
+
+@set win=true
+
+
+
+
