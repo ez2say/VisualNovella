@@ -27,3 +27,11 @@ MonoBehaviour:
     value: false
   - name: Location2Complete
     value: false
+  - name: Location1Lock
+    value: false
+  - name: Location2Lock
+    value: false
+  - name: Location3Lock
+    value: false
+  - name: MapBlock
+    value: true

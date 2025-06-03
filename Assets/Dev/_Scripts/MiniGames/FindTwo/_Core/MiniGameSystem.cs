@@ -63,8 +63,8 @@ public class MiniGameSystem : MonoBehaviour
             return;
         }
 
-        _cardFactory = new CardFactory(_gameConfig.CardPrefab, _cardsParent);
-        _cardSpawner = new CardSpawner(_cardFactory, _gameConfig, HandleCardSelected);
+        _cardFactory = new CardFactory(_gameConfig.CardPrefab);
+        _cardSpawner = new CardSpawner(_cardFactory, _gameConfig, HandleCardSelected, _cardsParent);
 
         _cardSpawner.SpawnCards();
         _cards = _cardSpawner.GetCards();

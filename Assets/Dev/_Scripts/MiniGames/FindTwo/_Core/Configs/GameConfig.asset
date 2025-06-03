@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 5340977277460071098, guid: c6b547cdfa473af44a09b29740beb913, type: 3}
-  pairsCount: 2
+  pairsCount: 5
   frontSides:
-  - {fileID: 21300000, guid: ba979b9e6a319a54db408e6f43fc738c, type: 3}
-  - {fileID: 21300000, guid: 11e557416547fb44598cdacad774a437, type: 3}
+  - {fileID: 21300000, guid: 98d6c4985d8c3b144abb4353b7b3520c, type: 3}
+  - {fileID: 21300000, guid: d991fb7e3137454449f2e630d3027cc3, type: 3}
+  - {fileID: 21300000, guid: 3fc324b030237fe47bad56637c1f7c58, type: 3}
+  - {fileID: 21300000, guid: fa38f230464478c40b48e54ca60dce6b, type: 3}
+  - {fileID: 21300000, guid: e36a53e99bb43474da59d950b4b5b5d1, type: 3}

@@ -1,5 +1,0 @@
-# global.nani
-
-@set $QuestStarted = false
-@set $HasKey = false
-@set $PlayerLevel = 1

@@ -1,14 +1,17 @@
 #start
+@back bg5
+@toggleMap
 @back
 @showPrinter
 
-name: Я на старой заброшенной ферме...
-name: Что-то блестит под доской... Это ключ!
+Я на старом складе...
+Что-то блестит под доской... Это ключ!
 @choice "Взять ключ" goto:.take_key
+@stop
 
 
 #take_key
 @set Key=true
-log key:{Key}
-name: Скорее всего это то что искал Npc2.
-@print "Ключ получен! Переход на Location2"
+@set Location3Lock=true
+Скорее всего это то что искал Npc2.
+@print <color=green>"Обновление квеста: найден ключ,вернуться на локацию 2"</color>

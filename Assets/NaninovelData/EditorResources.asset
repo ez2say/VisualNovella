@@ -157,3 +157,30 @@ MonoBehaviour:
       guid: f536d3db06ffeec4889173c0dd2f5c0d
   - Id: Unlockables
     Resources: []
+  - Id: Characters/1c5de076-3e5e-4e12-9eed-1cdbaeaec7dc
+    Resources:
+    - name: Idle
+      pathPrefix: Characters/Npc2
+      guid: e9466fc32a805d742a0e6fa6d20e33ab
+  - Id: Backgrounds/505e90f0-8130-4eb0-abdd-7dcc0505fb85
+    Resources:
+    - name: bg3
+      pathPrefix: Backgrounds/MainBackground
+      guid: 4a5d168a8c1f7f04a8d3157208be5774
+    - name: bg2
+      pathPrefix: Backgrounds/MainBackground
+      guid: 28413ae1a97be034eb8813b75282585f
+    - name: bg5
+      pathPrefix: Backgrounds/MainBackground
+      guid: dc68765a7daf4034494c49612d6a704c
+  - Id: Backgrounds/5f743339-776a-45c7-9aa3-07bb78b126cc
+    Resources: []
+  - Id: Backgrounds/2509fa85-85fb-4f8f-b586-ee110199a520
+    Resources: []
+  - Id: Backgrounds/7e53f2c4-0469-4114-a81b-e8fd6c5f0144
+    Resources: []
+  - Id: Characters/bff36f52-7871-4c34-9f5f-22f6d05bc2a2
+    Resources:
+    - name: Idle
+      pathPrefix: Characters/Npc1
+      guid: fb5f03500aac2914bb66e1c2dbcce24c

@@ -1,4 +1,6 @@
 #start
+@back bg2
+@toggleMap
 @if !Location2Complete
 @if !Key
     @goto .initial_dialog
@@ -8,12 +10,15 @@
 @else 
     @goto .final
 @endif
+@toggleMap
 
 # initial_dialog
+@char Npc2.Idle
 Npc2: Привет {name}!Да,тут все знают как тебя зовут - не удивляйся.
 Npc2:*смеется*
 @choice "Но меня прислали сообщить тебе,что .." goto:.startminigame
 @choice "Вы издеваетесь!?" goto:.angry
+@char Npc2.stay
 @stop
 
 #angry
@@ -39,29 +44,35 @@ Npc2:Помоги мне разобраться с загадкой, а то я 
 #agree
 @startMiniGame
 Npc2: {name}, ты справился! Спасибо за помощь!
+@print <color=green>"Обновление квеста: помочь npc2 с его просьбой"</color>
 @goto .end
 
 
 #refuse
-Lorem: Очень жаль... Может быть, в другой раз?
+Npc2: Очень жаль... Может быть, в другой раз?
 @goto .startminigame
 
 #end
-Npc: На локации 3 нужно кое-что найти, только это нужно отдать МНЕ
+Npc2: На локации 3 нужно ключ найти, только это нужно отдать МНЕ
+@char Npc2.Idle visible:false
+@set Location3Lock=false
+@print <color=green>"Обновление квеста: npc2 странно ведет себя"</color>
 @stop
 
 #findKey
+@toggleMap
 @back
 @showPrinter
-@char None
-name: Я вернулся к пустому столбу...,где этот ..который больной(?)
-log *пууууууууууууууууууууууууууууууууууууууууууусто*
-name: наверное нужно вернуться на первую локацию
+Я вернулся к пустому столбу...,где этот ..который больной(?)
+*пууууууууууууууууууууууууууууууууууууууууууусто*
+наверное нужно вернуться на первую локацию
+@print <color=green>"Обновление квеста: вернуться на первую локацию,чтобы отдать ключ"</color> 
 @set Location2Complete=true
 @stop
 
 #final
-name: никого и ничего вокруг...
-name: спокойно
-log *ты стоишь и ничего не происходит*
+@toggleMap
+никого и ничего вокруг...
+спокойно
+*ты стоишь и ничего не происходит*
 @stop
